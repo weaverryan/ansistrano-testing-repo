@@ -1,5 +1,6 @@
 ---
-- hosts: webserver
+- name: provision
+  hosts: webserver
 
   vars_files:
     - ./vars/vault.yml
@@ -19,11 +20,13 @@
         state: latest
 
     - name: Create project directory
-      path: '{{ project_deploy_dir }}'
-      state: directory
-      owner: '{{ ansible_user }}'
-      group: '{{ ansible_user }}'
-      mode: 0775
+      become: true
+      file:
+        path: '{{ project_deploy_dir }}'
+        state: directory
+        owner: '{{ ansible_user }}'
+        group: '{{ ansible_user }}'
+        mode: 0775
 
   roles:
     - nginx
