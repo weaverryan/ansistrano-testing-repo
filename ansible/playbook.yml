@@ -3,7 +3,6 @@
   hosts: webserver
 
   vars_files:
-    - ./vars/vault.yml
     - ./vars/vars.yml
 
   pre_tasks:
