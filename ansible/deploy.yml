@@ -1,0 +1,9 @@
+---
+- hosts: aws
+
+  vars:
+    # Ansistrano vars
+    ansistrano_deploy_to: "/var/www/project"
+
+  roles:
+    - carlosbuenosvinos.ansistrano-deploy
