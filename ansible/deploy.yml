@@ -18,5 +18,8 @@
     ansistrano_git_branch: "{{ git_branch }}"
     ansistrano_git_identity_key_path: "{{ playbook_dir }}/id_rsa"
 
+    # Custom Ansistrano hooks
+    ansistrano_after_symlink_shared_tasks_file: "{{ playbook_dir }}/deploy/after-symlink-shared.yml"
+
   roles:
     - carlosbuenosvinos.ansistrano-deploy
