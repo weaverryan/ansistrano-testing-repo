@@ -16,7 +16,7 @@ class Version20171009014318 extends AbstractMigration
     public function up(Schema $schema)
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('UPDATE video DROP image');
+        $this->addSql('ALTER TABLE video DROP image');
     }
 
     /**
