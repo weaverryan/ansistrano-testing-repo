@@ -24,8 +24,9 @@ framework:
     default_locale:  "%locale%"
     trusted_hosts:   ~
     trusted_proxies: ~
-    # use the default PHP session handler
-    session: ~
+    session:
+        # use the default PHP session handler
+        handler_id: ~
     fragments:       ~
     http_method_override: true
     assets: ~
