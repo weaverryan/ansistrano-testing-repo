@@ -20,7 +20,7 @@ class Version20171009013248 extends AbstractMigration
 
         //$this->addSql('ALTER TABLE video CHANGE image poster VARCHAR(255) NOT NULL');
         $this->addSql('ALTER TABLE video ADD poster VARCHAR(255) NOT NULL');
-        $this->addSql('ALTER TABLE video SET poster = image');
+        $this->addSql('UPDATE video SET poster = image');
     }
 
     /**
@@ -32,7 +32,7 @@ class Version20171009013248 extends AbstractMigration
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
         //$this->addSql('ALTER TABLE video CHANGE poster image VARCHAR(255) NOT NULL COLLATE utf8_unicode_ci');
-        $this->addSql('ALTER TABLE video SET image = poster');
-        $this->addSql('ATLTER TABLE video DROP poster');
+        $this->addSql('UPDATE video SET image = poster');
+        $this->addSql('ALTER TABLE video DROP poster');
     }
 }
