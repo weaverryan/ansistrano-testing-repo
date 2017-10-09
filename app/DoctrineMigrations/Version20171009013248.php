@@ -19,7 +19,7 @@ class Version20171009013248 extends AbstractMigration
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
         //$this->addSql('ALTER TABLE video CHANGE image poster VARCHAR(255) NOT NULL');
-        //$this->addSql('ALTER TABLE video ADD poster VARCHAR(255) NOT NULL');
+        $this->addSql('ALTER TABLE video ADD poster VARCHAR(255) NOT NULL');
         $this->addSql('UPDATE video SET poster = image');
     }
 
