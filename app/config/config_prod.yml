@@ -5,7 +5,7 @@ doctrine:
     orm:
         metadata_cache_driver: apcu
 #        result_cache_driver: apc
-#        query_cache_driver: apc
+        query_cache_driver: apcu
 
 monolog:
     handlers:
