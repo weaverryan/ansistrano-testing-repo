@@ -29,13 +29,12 @@
     chdir: '{{ ansistrano_release_path.stdout }}'
 
 - name: Setup directory permissions for var/logs
+  become: true
   file:
     path: "{{ release_logs_path }}"
     state: directory
     mode: 0777
     recurse: true
-    # We need it because logs are symlinks now
-    follow: yes
 
 - name: Create DB if not exists
   command: '{{ release_console_path }} doctrine:database:create --if-not-exists --env=prod'
