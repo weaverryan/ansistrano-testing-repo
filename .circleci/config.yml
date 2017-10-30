@@ -77,13 +77,8 @@ jobs:
             - '/root/.ansible/roles'
 
       - run: echo $ANSIBLE_VAULT_PASS > ./ansible/.vault-pass.txt
-      - run: echo $AWS_SSH_PRIVATE_KEY | base64 --decode > ./ansible/KnpU-Tutorial.pem
-
       - run: ansible-playbook ansible/deploy.yml -i ansible/hosts.ini -e "git_branch=master ansible_ssh_private_key_file=./ansible/id_rsa" --vault-password-file=./ansible/.vault-pass.txt
-
       - run: rm ./ansible/.vault-pass.txt
-      - run: rm ./ansible/KnpU-Tutorial.pem
-
 
 workflows:
   version: 2
